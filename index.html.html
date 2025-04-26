@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpieza de Río - Blog Personal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.01em;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FFF7F0;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #E6E6FA 0%, #F5F5FF 100%);
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            border-radius: 16px;
+            margin: 20px;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 10%;
+            right: 20%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            color: #000000;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .hero-testimonial {
+            z-index: 1;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333333;
+        }
+
+        h1 {
+            font-size: 60px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .hero-subtext {
+            font-size: 14px;
+            color: #000000;
+            margin-top: 16px;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #333333;
+            color: #000000;
+        }
+
+        .navigation {
+            background-color: #F5F5F5;
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navigation .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-link {
+            margin: 0 15px;
+            color: #333333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #E63946;
+        }
+
+        .testimonios-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #FFFFFF;
+            color: #333333;
+        }
+
+        .testimonios-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            color: #000000;
+        }
+
+        .testimonios-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .testimonio {
+            position: relative;
+            max-width: 33%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .testimonio::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .testimonio p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .testimonio .testimonial-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .about-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #FFF7F0;
+            color: #333333;
+        }
+
+        .about-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .about-description {
+            font-size: 18px;
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #E63946;
+            font-weight: 600;
+        }
+
+        .photo-categories {
+            padding: 80px 20px;
+            background-color: #F5F5F5;
+            text-align: center;
+        }
+
+        .photo-categories .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .category {
+            width: 30%;
+            height: 300px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category img.loaded {
+            opacity: 1;
+        }
+
+        .category h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 16px 12px 8px;
+            color: #333333;
+        }
+
+        .category p {
+            font-size: 16px;
+            color: #666666;
+            padding: 0 16px 16px;
+            line-height: 1.4;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 50%;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 50vh;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #333333;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #FFFFFF;
+            background: #F28C38;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .arrow:hover {
+            background: #E63946;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        .text-panel {
+            flex: 1;
+            background: #F5F5F5;
+            padding: 16px;
+            border-radius: 8px;
+            color: #333333;
+            text-align: left;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .text-panel p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .photo-gallery, .second-gallery {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #FFF7F0;
+            position: relative;
+        }
+
+        .gallery-title, .second-gallery-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #333333;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            width: 30%;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item img.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid rgba(242, 140, 56, 0.2);
+            border-top-color: #E63946;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        .loading-spinner.hidden {
+            opacity: 0;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(255, 247, 240, 0), #FFF7F0);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #F5F5F5;
+            color: #333333;
+        }
+
+        .contact-title {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .contact-description {
+            font-size: 18px;
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #CCCCCC;
+            border-radius: 8px;
+            background-color: #FFFFFF;
+            color: #333333;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #E63946;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #F4A261;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #FFF7F0;
+        }
+
+        @media (max-width: 1024px) {
+            .category, .gallery-item {
+                width: 48%;
+            }
+            .testimonio {
+                max-width: 48%;
+            }
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                padding: 20px;
+            }
+            .hero-testimonial {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .testimonios-title, .about-title, .gallery-title, .second-gallery-title, .contact-title {
+                font-size: 28px;
+            }
+
+            .about-description, .contact-description {
+                font-size: 16px;
+            }
+
+            .hero-content {
+                padding: 0;
+                text-align: center;
+            }
+
+            .cta-button, .contact-form button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .category, .gallery-item {
+                width: 100%;
+                height: 240px;
+            }
+
+            .testimonio {
+                max-width: 100%;
+            }
+
+            .testimonio p, .testimonio .testimonial-subtitle {
+                font-size: 14px;
+            }
+
+            .hero-subtext {
+                font-size: 12px;
+            }
+
+            .hero-testimonial {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .testimonios-title, .about-title, .gallery-title, .second-gallery-title, .contact-title {
+                font-size: 24px;
+            }
+
+            .about-description, .contact-description {
+                font-size: 14px;
+            }
+
+            .hero-subtext {
+                font-size: 10px;
+            }
+
+            .hero-testimonial {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="container">
+            <div style="flex: 1;"></div>
+            <div style=" flex: 1; display: flex; justify-content: center; gap: 30px;">
+                <a href="#testimonios" class="nav-link">Voluntariado</a>
+                <a href="#contacto" class="nav-link">Comunícate</a>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: flex-end;">
+                <a href="#inicio">
+                    <img src="https://i.ibb.co/TDGqH7k7/das-removebg-preview.png" alt="Logo" style="height: 76px;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero fade-in">
+        <div class="hero-content">
+            <h1>Proteger<br>Ecosistemas<br>Acuáticos</h1>
+            <p class="hero-subtext">Pequeñas acciones hacen grandes cambios.</p>
+            <a href="#testimonios" class="cta-button">Comencemos</a>
+        </div>
+        <div class="hero-testimonial">
+            <p>"Don Luis, que vive cerca del río toda su vida, esta cansado por el agua turbia, llena de porquerías flotando... ni una hojita verde cerca, ni un bicho que se moviera. Uno lo miraba y sentía un vacío, como algo muy importante se hubiera perdido. No había alegría, solo la sensación de que esto estaba muy mal."</p>
+        </div>
+    </div>
+
+    <div id="content" style="display: block;">
+
+        <div class="testimonios-section fade-in" id="testimonios">
+            <div class="container">
+                <h2 class="testimonios-title">Voluntarios</h2>
+                <div class="testimonios-container">
+                    <div class="testimonio">
+                        <p>Estuvo los 6 dias que me demore en limpiar, apenas me vio trabajando no dudo en ayudarme </p>
+                        <p class="testimonial-subtitle">Contribuyente estrella<br>Austin</p>
+                    </div>
+                    <div class="testimonio">
+                        <p>Solo estaba a la jugonada casi no hacia nada solo se la pasba chistoseando</p>
+                        <p class="testimonial-subtitle">Contribuyente<br>Morachi</p>
+                    </div>
+                    <div class="testimonio">
+                        <p>wiwill  asi mismo me ayudo como austin pero no se merece el estrella6 </p>
+                        <p class="testimonial-subtitle">Contribuyente<br>Wiwill</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section fade-in" id="about">
+            <div class="container">
+                <h2 class="about-title">Somos Raíces del Futuro</h2>
+                <p class="about-description">
+                    Dedicados a preservar los ríos y fomentar la conciencia ambiental a través de acciones comunitarias.
+                </p>
+                <p class="about-description">
+                    Creemos que <span class="highlight">un río limpio es un futuro sostenible</span> y trabajamos para <span class="highlight">proteger la vida acuática</span> junto a voluntarios como tú.
+                </p>
+            </div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Sección "La realidad que queremos cambiar" movida aquí -->
+        <div class="photo-gallery fade-in">
+            <div class="container">
+                <h2 class="gallery-title">La realidad que queremos cambiar</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/prb5fFcf/IMG-20250415-WA0000.jpg" alt="Evento 1" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/VyyzJGK/IMG-20250415-WA0001.jpg" alt="Evento 2" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/TxNK43XB/IMG-20250415-WA0002.jpg" alt="Esfjd" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/MDNqbgDG/IMG-20250415-WA0003.jpg" alt="Evento 4" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/hFj5NLLw/IMG-20250415-WA0005.jpg" alt="Evento 5" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/PvHsX13c/IMG-20250415-WA0007.jpg" alt="Evento 6" class="lazy-image">
+                    </div>
+                </div>
+            </div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <!-- Sección de los días movida aquí -->
+        <div class="photo-categories fade-in">
+            <div class="container">
+                <h2 class="gallery-title">Proceso  </h2>
+            <div class="container">
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/jsJBMxG/IMG-20250415-WA0001.jpg" alt="Limpieza" class="lazy-image">
+                    </div>
+                    <h3>DIA 1</h3>
+                </div>
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/DH0fGfNP/dia-2.jpg" alt="Educación Ambiental" class="lazy-image">
+                    </div>
+                    <h3>DIA 2</h3>
+                </div>
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/XfF8JXcp/dia-3.jpg" alt="Reforestación" class="lazy-image">
+                    </div>
+                    <h3>DIA 3</h3>
+                </div>
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/BVLzWjhP/IMG-0547.jpg" alt="Monitoreo de Agua" class="lazy-image">
+                    </div>
+                    <h3>DIA 4</h3>
+                </div>
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/cKRGNJHX/IMG-0545-1.jpg" alt="Educación Ambiental" class="lazy-image">
+                    </div>
+                    <h3>DIA 5</h3>
+                </div>
+                <div class="category">
+                    <div class="category-img-container">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/FLpPDxJ4/scott-lord-W-g46-NO0xz-M-unsplash.jpg" alt="Reforestación" class="lazy-image">
+                    </div>
+                    <h3>DIA 6</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close" id="close">×</span>
+                <div class="modal-inner">
+                    <div class="image-container">
+                        <span class="arrow left" id="prev">←</span>
+                        <img id="modal-image" src="" alt="Modal Image">
+                        <span class="arrow right" id="next">→</span>
+                    </div>
+                    <div class="text-panel">
+                        <p id="modal-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="second-gallery fade-in">
+            <div class="container">
+                <h2 class="second-gallery-title">Impactos positivos</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2070&auto=format&fit=crop" alt="Impacto 1" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/0R29ZnyB/premium-photo-1744370974892-2f3fdc78000c.jpg" alt="Impacto 2" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Impacto 3" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/LzQm4K3J/premium-photo-1744876199342-33f0c4c3d75b.jpg" alt="Impacto 4" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=2070&auto=format&fit=crop" alt="Impacto 5" class="lazy-image">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="loading-spinner"></div>
+                        <img data-src="https://i.ibb.co/S4b6bJ7T/premium-photo-1744888432880-1b9c6fb1f612.jpg" alt="Impacto 6" class="lazy-image">
+                    </div>
+                </div>
+            </div>
+            <div class="gradient-overlay"></div>
+        </div>
+
+        <div class="contact-section fade-in" id="contacto">
+            <div class="container">
+                <h2 class="contact-title">Conclusion</h2>
+            </div>
+        </div>
+
+        <div class electro"cta-section">
+            <div class="container">
+                <a href="https://whatsapp.com/channel/0029VbAZTY4C1Fu7D26aim2V" target="_blank" class="cta-button">Quiero participar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 150);
+                        fadeObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            });
+
+            fadeElements.forEach(el => {
+                fadeObserver.observe(el);
+            });
+
+            const lazyImages = document.querySelectorAll('.lazy-image');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        const delay = Math.random() * 300 + 400;
+
+                        setTimeout(() => {
+                            img.onload = function() {
+                                setTimeout(() => {
+                                    img.classList.add('loaded');
+                                    const spinner = img.parentNode.querySelector('.loading-spinner');
+                                    if (spinner) {
+                                        spinner.classList.add('hidden');
+                                    }
+                                }, 50);
+                            };
+                            img.setAttribute('src', src);
+                            imageObserver.unobserve(img);
+                        }, delay);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '150px',
+                threshold: 0.1
+            });
+
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            window.addEventListener('scroll', function() {
+                const hero = document.querySelector('.hero');
+                const scrollPosition = window.scrollY;
+
+                if (scrollPosition <= hero.offsetHeight) {
+                    hero.style.backgroundPosition = `center ${scrollPosition * 0.4}px`;
+                }
+            });
+
+            const commenceButton = document.querySelector('.hero .cta-button');
+            commenceButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('content').style.display = 'block';
+                document.body.style.overflow = 'visible';
+                document.getElementById('testimonios').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalText = document.getElementById('modal-text');
+            const close = document.getElementById('close');
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+            const categories = document.querySelectorAll('.category');
+            let currentIndex = 0;
+
+            const categoryData = [
+                {
+                    src: 'https://i.ibb.co/bMc23ZB5/IMG-20250422-WA0000.jpg',
+                    text: 'Una playa es una zona costera formada por sedimentos sueltos, como arena, guijarros o conchas, que se encuentran en la orilla de una masa de agua.'
+                },
+                {
+                    src: 'https://i.ibb.co/d0syYCxZ/IMG-20250422-WA0001.jpg',
+                    text: 'Elementos de una playa: Sedimentos (arena, guijarros, conchas, etc.), masa de agua (océano, mar, lago, etc.), olas y corrientes que dan forma a la playa con el tiempo.'
+                },
+                {
+                    src: 'https://i.ibb.co/FLpPDxJ4/scott-lord-W-g46-NO0xz-M-unsplash.jpg',
+                    text: 'Las playas pueden ser hábitats importantes para muchas especies marinas y aves.'
+                },
+                {
+                    src: 'https://i.ibb.co/FLpPDxJ4/scott-lord-W-g46-NO0xz-M-unsplash.jpg',
+                    text: 'El monitoreo de agua ayuda a garantizar la calidad del ecosistema en las playas.'
+                },
+                {
+                    src: 'https://i.ibb.co/FLpPDxJ4/scott-lord-W-g46-NO0xz-M-unsplash.jpg',
+                    text: 'La educación ambiental fomenta la conservación de las playas y sus alrededores.'
+                },
+                {
+                    src: 'https://i.ibb.co/FLpPDxJ4/scott-lord-W-g46-NO0xz-M-unsplash.jpg',
+                    text: 'La reforestación cerca de las playas ayuda a prevenir la erosión y proteger el hábitat.'
+                }
+            ];
+
+            categories.forEach((category, index) => {
+                category.addEventListener('click', () => {
+                    currentIndex = index;
+                    openModal();
+                });
+            });
+
+            close.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            prev.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + categoryData.length) % categoryData.length;
+                openModal();
+            });
+
+            next.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % categoryData.length;
+                openModal();
+            });
+
+            function openModal() {
+                const data = categoryData[currentIndex];
+                modalImage.src = '';
+                modalImage.src = data.src;
+                modalText.textContent = data.text;
+                modal.style.display = 'flex';
+            }
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
